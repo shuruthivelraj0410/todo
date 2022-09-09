@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/" method="post">
+    <h1>ADD TASK :</h1> <input type="text" name="addingtask">      <input type="submit" value="ADD"></br></br>
+    <h2>TO-DO : </h2>
+   <table>
+       <%  value = result.length -1 %>
+       <tr><td><%= result[0].todo_list +" "+ value %></td></tr>
+    <%for(let i =1;i<result.length;i++){ %>
+<tr>
+        
+            <td> <input type = "checkbox" name="check" value="<%= result[i].todo_list %>" > <%= result[i].todo_list %> </td>
+            
+    <% } %>
+    
+</tr>
+</table></br></br>
+</br></br>
+<button formaction="/remove" type="submit">REMOVE</button>   <button formaction="/complete" type="submit">COMPLETE</button>
+<h1> </h1>
+    <h3>COMPLETED TASK : </h3>
+   
+        <table>
+            <% value1 = complete.length -1 %>
+            <tr><td><%= complete[0].todo_list +" " + value1%></td></tr>
+            <% for(let i =1;i<complete.length;i++){%>
+                <tr>
+                    <td> <input type = "checkbox" name="completecheck" value="<%= complete[i].todo_list %>" > <%= complete[i].todo_list %> </td>
+                    <% } %>
+                </tr>
+        </table></br></br>
+    </br></br>
+    <button formaction="/movetodo" type="submit">MOVE TO TODO</button>    <button formaction="/remove" type="submit">REMOVE</button> 
+    </form>
+</body>
+</html>
